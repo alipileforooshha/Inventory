@@ -82,6 +82,40 @@
             </thead>
     
             <tbody>
+                @if(Route::current()->getName() == "dashboard")
+                        <tr>
+                            <form action="{{route('items.create')}}" method="POST">
+                                <div class="form-group">
+                                    <td><input type="text" name="name" id="" placeholder="نام" class="form-control"></td>
+                                </div>
+                                <div class="form-group">
+                                    <td><input type="text" name="code" id="" placeholder="کد شناسه" class="form-control"></td>
+                                </div>
+                                <div class="form-group">
+                                    <td><select type="text" name="location" id="" placeholder="مکان" class="form-control form-select">
+                                        <option name="مسجد" id="" value="0">مسجد</option>
+                                        <option name="انبار" id="" value="1">انبار</option>
+                                        <option name="حسینیه" id="" value="2">حسینیه</option>
+                                        <option name="دفتر" id="" value="3">دفتر</option>
+                                        </select>
+                                    </td>
+                                </div>
+                                <div class="form-group text-center">
+                                    <td>
+                                        <input type='hidden' value='0' name='is_vaghf'>
+                                        <input type="checkbox" class="form-check-input" id="check1" name="is_vaghf" value="1">
+                                    </td>
+                                </div>
+                                <div class="form-group">
+                                    <td><input type="text" name="date" id="" placeholder="تاریخ ثبت" class="form-control" value="{{date('Y-m-d H:i:s')}}"></td>
+                                </div>
+                                <div class="form-group">
+                                    @csrf
+                                    <td><button type="submit" class="btn btn-primary">ثبت</button></td>
+                                </div>
+                            </form>
+                        </tr>
+                    @endif
                 @foreach($items as $item)
                     <tr>
                         <form method="POST" action="{{route('items.update',$item->id)}}">
@@ -123,40 +157,6 @@
                         </div>
                     </tr>
                 @endforeach
-                    @if(Route::current()->getName() == "dashboard")
-                        <tr>
-                            <form action="{{route('items.create')}}" method="POST">
-                                <div class="form-group">
-                                    <td><input type="text" name="name" id="" placeholder="نام" class="form-control"></td>
-                                </div>
-                                <div class="form-group">
-                                    <td><input type="text" name="code" id="" placeholder="کد شناسه" class="form-control"></td>
-                                </div>
-                                <div class="form-group">
-                                    <td><select type="text" name="location" id="" placeholder="مکان" class="form-control form-select">
-                                        <option name="مسجد" id="" value="0">مسجد</option>
-                                        <option name="انبار" id="" value="1">انبار</option>
-                                        <option name="حسینیه" id="" value="2">حسینیه</option>
-                                        <option name="دفتر" id="" value="3">دفتر</option>
-                                        </select>
-                                    </td>
-                                </div>
-                                <div class="form-group text-center">
-                                    <td>
-                                        <input type='hidden' value='0' name='is_vaghf'>
-                                        <input type="checkbox" class="form-check-input" id="check1" name="is_vaghf" value="1">
-                                    </td>
-                                </div>
-                                <div class="form-group">
-                                    <td><input type="text" name="date" id="" placeholder="تاریخ ثبت" class="form-control" value="{{date('Y-m-d H:i:s')}}"></td>
-                                </div>
-                                <div class="form-group">
-                                    @csrf
-                                    <td><button type="submit" class="btn btn-primary">ثبت</button></td>
-                                </div>
-                            </form>
-                        </tr>
-                    @endif
             </tbody>
         </table>
     </main>

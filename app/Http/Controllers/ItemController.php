@@ -12,11 +12,7 @@ class ItemController extends Controller
     public function index(){
         $items = Item::all();
         foreach($items as $item){
-            // dd(Jalalian::fromDateTime(Carbon::parse($item->created_at))->format('Y-m-d'));
-            // $item->created_at = 2;
-            // $item->created_at = Jalalian::fromCarbon(Carbon::parse($item->created_at))->format('Y-m-d');
             $item->created_at = Jalalian::fromDateTime(Carbon::parse($item->created_at))->format('Y-m-d');
-            // dd($item->created_at);
         }
         return view('dashboard',['items'=>$items]);
     }
