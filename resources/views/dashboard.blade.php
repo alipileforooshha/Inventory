@@ -55,8 +55,12 @@
             <div class="form-group text-center d-flex align-items-center search">
                 <td>
                     <label for="" class="mx-2">وقف</label>
-                    <input type='hidden' value='0' name='is_vaghf'>
-                    <input type="checkbox" class="form-check-input" id="check1" name="is_vaghf" value="1">
+                    {{-- <input type='hidden' value='0' name='is_vaghf'>
+                    <input type="checkbox" class="form-check-input" id="check1" name="is_vaghf" value="1"> --}}
+                    <label for="" class="mx-2">هست</label>
+                    <input type="radio" name="is_vaghf" id="" value="1">
+                    <label for="" class="mx-2">نیست</label>
+                    <input type="radio" name="is_vaghf" id="" value="0">
                 </td>
             </div>
             <div class="form-group d-flex align-items-center mx-2 my-sm-2 my-xlg-0">
